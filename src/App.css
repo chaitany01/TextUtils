@@ -1,0 +1,413 @@
+/* ============================= */
+/* CSS Variables & Theme System */
+/* ============================= */
+
+:root {
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --dark-bg: #1a1d23;
+  --dark-card: #242830;
+  --dark-text: #e8eaed;
+  --light-bg: #f8f9fa;
+  --light-card: #ffffff;
+  --light-text: #212529;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* ============================= */
+/* Global App Styling */
+/* ============================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition: background-color var(--transition-speed) ease, 
+              color var(--transition-speed) ease;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+/* ============================= */
+/* Container Enhancements */
+/* ============================= */
+
+.container {
+  transition: background-color var(--transition-speed) ease, 
+              color var(--transition-speed) ease;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* ============================= */
+/* Card Wrapper */
+/* ============================= */
+
+.textutils-card {
+  padding: 32px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-speed) ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.textutils-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* Typography */
+/* ============================= */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--primary-color), #0b5ed7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* ============================= */
+/* Text Area Styling */
+/* ============================= */
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 180px;
+  transition: all var(--transition-speed) ease;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  border: 2px solid rgba(13, 110, 253, 0.2);
+}
+
+textarea.form-control:hover {
+  border-color: rgba(13, 110, 253, 0.4);
+}
+
+textarea.form-control:focus {
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+  border-color: var(--primary-color);
+  outline: none;
+  transform: scale(1.01);
+}
+
+/* ============================= */
+/* Button Styling */
+/* ============================= */
+
+button.btn {
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button.btn:active {
+  transform: translateY(0);
+}
+
+button.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+}
+
+button.btn-success {
+  background: linear-gradient(135deg, var(--success-color), #157347);
+}
+
+button.btn-danger {
+  background: linear-gradient(135deg, var(--danger-color), #bb2d3b);
+}
+
+button.btn-warning {
+  background: linear-gradient(135deg, var(--warning-color), #ffca2c);
+  color: #000;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+button:disabled:hover {
+  transform: none;
+}
+
+/* ============================= */
+/* Alert Styling */
+/* ============================= */
+
+.alert {
+  min-height: 50px;
+  border-radius: 10px;
+  padding: 16px 20px;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-success {
+  border-left-color: var(--success-color);
+  background: rgba(25, 135, 84, 0.1);
+}
+
+.alert-danger {
+  border-left-color: var(--danger-color);
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.alert-warning {
+  border-left-color: var(--warning-color);
+  background: rgba(255, 193, 7, 0.1);
+}
+
+/* ============================= */
+/* Text Summary Section */
+/* ============================= */
+
+.text-summary {
+  padding: 24px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(13, 110, 253, 0.1));
+  margin-top: 24px;
+  border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.text-summary h2 {
+  margin-bottom: 16px;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* ============================= */
+/* Preview Text */
+/* ============================= */
+
+.preview-section {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px dashed rgba(13, 110, 253, 0.3);
+  min-height: 100px;
+}
+
+.preview-section p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* ============================= */
+/* Dark Mode Support */
+/* ============================= */
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .textutils-card {
+  background-color: var(--dark-card);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode textarea.form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--dark-text);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode textarea.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary-color);
+}
+
+body.dark-mode .text-summary {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.15));
+}
+
+body.dark-mode .stat-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .preview-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================= */
+/* Responsive Design */
+/* ============================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .textutils-card {
+    padding: 20px;
+  }
+  
+  button.btn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  
+  .summary-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================= */
+/* Accessibility Improvements */
+/* ============================= */
+
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* ============================= */
+/* Loading Animation */
+/* ============================= */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
